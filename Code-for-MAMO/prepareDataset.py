@@ -15,21 +15,22 @@ def id_storing(dataset='movielens', max_count=20):
 
     if dataset == 'movielens':
         id_storing_movielens(max_count=max_count)
-    else if dataset == 'bookcrossing':
-        id_storing_bookcrossing(max_count=max_count)
     #lastfm
-    else if dataset == 'lastfm':
+    elif dataset == 'lastfm':
         id_storing_lastfm(max_count=max_count)
+    else:
+        id_storing_bookcrossing(max_count=max_count)
+
 
 
 def dict_storing(dataset='movielens'):
     if dataset == 'movielens':
         dict_storing_movielens()
-    else if dataset == 'bookcrossing':
-        dict_storing_bookcrossing()
     #lastfm
-    else if dataset == 'lastfm': 
+    elif dataset == 'lastfm': 
         dict_storing_lastfm()
+    else:
+        dict_storing_bookcrossing()
 
 def state_check(u_id, i_id, u_state_ids, i_state_ids):
 

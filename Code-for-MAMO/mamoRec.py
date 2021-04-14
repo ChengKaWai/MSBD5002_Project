@@ -41,13 +41,13 @@ class MAMRec:
         if dataset == 'movielens':
             self.x1_loading, self.x2_loading = MLUserLoading(embedding_dim=self.embedding_dim).to(self.device), \
                                                MLItemLoading(embedding_dim=self.embedding_dim).to(self.device)
-        else if dataset == 'bookcrossing':
-            self.x1_loading, self.x2_loading = BKUserLoading(embedding_dim=self.embedding_dim).to(self.device), \
-                                               BKItemLoading(embedding_dim=self.embedding_dim).to(self.device)
         #lastfm
-        else if dataset == 'lastfm':
+        elif dataset == 'lastfm':
             self.x1_loading, self.x2_loading = LFUserLoading(embedding_dim=self.embedding_dim).to(self.device), \
                                                LFItemLoading(embedding_dim=self.embedding_dim).to(self.device)
+        else:
+            self.x1_loading, self.x2_loading = BKUserLoading(embedding_dim=self.embedding_dim).to(self.device), \
+                                               BKItemLoading(embedding_dim=self.embedding_dim).to(self.device)
 
         self.n_y = default_info[dataset]['n_y']
 
