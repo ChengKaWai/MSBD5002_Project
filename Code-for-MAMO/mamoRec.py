@@ -104,7 +104,8 @@ class MAMRec:
 
     def test_with_meta_optimization(self):
         best_phi_u, best_phi_i, best_phi_r = self.model.get_weights()
-
+        #declare outputs
+        outputs = []
         for u in self.test_users:
             bias_term, att_values = user_mem_init(u, self.dataset, self.device, self.FeatureMEM, self.x1_loading,
                                                   self.alpha)
@@ -114,4 +115,9 @@ class MAMRec:
             self.model.init_weights(best_phi_u, best_phi_i, best_phi_r)
             user_module = LOCALUpdate(self.model, u, self.dataset, self.support_size, self.query_size, self.batch_size,
                                       self.n_inner_loop, self.rho, top_k=3, device=self.device)
-            user_module.test()
+            
+            #generate outputs
+            outputs.append(user_module.test())
+            #user_module.test()
+        #return outputs    
+        return outputs

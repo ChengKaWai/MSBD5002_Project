@@ -50,7 +50,8 @@ def load_lastfm():
                           names=['user_id', 'item_id', 'rating', 'timestamp', 'tag_id', 'weight'],
                           sep=",", engine='python')
     ratings = ratings.drop(columns=['tag_id', 'weight'])
-    ratings['time'] = ratings["timestamp"].map(lambda x: datetime.datetime.fromtimestamp(x))
+    # Update x to x/1000 for error : year is out of range
+    ratings['time'] = ratings["timestamp"].map(lambda x: datetime.datetime.fromtimestamp(x/1000))
     ratings = ratings.drop(["timestamp"], axis=1)
 
     return user_info, item_info, ratings
@@ -61,7 +62,7 @@ def id_storing_lastfm(max_count=20):
     dataset = 'lastfm'
 
     if not os.path.exists('{}/{}/user_state_ids.p'.format(storing_path, dataset)):
-        _, _, ratings_dat = load_movielens()
+        _, _, ratings_dat = load_lastfm()
 
         sorted_time = ratings_dat.sort_values(by='time', ascending=True).reset_index(drop=True)
         start_time, split_time, end_time = sorted_time['time'][0], sorted_time['time'][
@@ -136,7 +137,7 @@ def dict_storing_lastfm():
     item_state_ids = pickle.load(open('{}/{}/item_state_ids.p'.format(storing_path, dataset), 'rb'))
 
     # store user and item dict
-    user_info, item_info, _ = load_movielens()
+    user_info, item_info, _ = load_lastfm()
 
     # user
     user_all_features = []

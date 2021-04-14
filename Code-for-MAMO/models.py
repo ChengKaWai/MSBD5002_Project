@@ -115,6 +115,12 @@ class LOCALUpdate:
 
         # D.I.Y your calculation for the results
         q_pred_y = self.model(self.q_x1, self.q_x2)  # on query set
+        q_pred_y_rating = torch.argmax(q_pred_y, dim=1)
+        loss = self.loss_fn(q_pred_y, self.q_y)
+        mae_result = mae(self.q_y, q_pred_y)
+        ndcg_result = ndcg(self.q_y, q_pred_y)
+        # q_x1 = user feature ; q_x2 = item feature
+        return q_pred_y, q_pred_y_rating, self.q_y, loss, mae_result, ndcg_result, self.q_x1, self.q_x2
 
 
 def maml_train(raw_phi_u, raw_phi_i, raw_phi_r, u_grad_list, i_grad_list, r_grad_list, global_lr):

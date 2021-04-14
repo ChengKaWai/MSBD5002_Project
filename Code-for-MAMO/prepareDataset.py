@@ -107,13 +107,13 @@ def data_generation(dataset='lastfm'):
 
 if __name__ == '__main__':
     # movielens data generating
-    id_storing()
-    dict_storing()
-    data_generation()
+#    id_storing(dataset='movielens')
+#    dict_storing(dataset='movielens')
+#    data_generation(dataset='movielens')
     # bookcrossing data generating
-    id_storing(dataset='bookcrossing')
-    dict_storing(dataset='bookcrossing')
-    data_generation(dataset='bookcrossing')
+#    id_storing(dataset='bookcrossing')
+#    dict_storing(dataset='bookcrossing')
+#    data_generation(dataset='bookcrossing')
     # lastfm data generating
     id_storing(dataset='lastfm')
     dict_storing(dataset='lastfm')

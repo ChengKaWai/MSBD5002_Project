@@ -33,7 +33,7 @@ config = {
 #lastfm
 default_info = {
     'movielens': {'n_y': 5, 'u_in_dim': 3, 'i_in_dim': 4},
-    'bookcrossing': {'n_y': 10, 'u_in_dim': 2, 'i_in_dim': 3}
+    'bookcrossing': {'n_y': 10, 'u_in_dim': 2, 'i_in_dim': 3},
     'lastfm': {'n_y': 5, 'u_in_dim': 1, 'i_in_dim': 1}
 }
 
