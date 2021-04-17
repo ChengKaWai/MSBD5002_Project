@@ -81,7 +81,7 @@ def user_converting_lf(user_row, friend_list):
     for friend in str(user_row.iat[0, 1]).split(", "):
         idx = friend_list.index(friend)
         friend_idx[idx] = 1
-    return [friend_idx]
+    return friend_idx
 
 
 def item_converting_lf(item_row, category_list):
@@ -100,4 +100,4 @@ def item_converting_lf(item_row, category_list):
 #    out_list.extend(genre_idx)
 #    out_list.extend(director_idx)
 #    return out_list
-    return [category_idx]
+    return category_idx

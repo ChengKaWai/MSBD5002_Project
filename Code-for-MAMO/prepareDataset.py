@@ -115,6 +115,6 @@ if __name__ == '__main__':
 #    dict_storing(dataset='bookcrossing')
 #    data_generation(dataset='bookcrossing')
     # lastfm data generating
-    id_storing(dataset='lastfm')
-    dict_storing(dataset='lastfm')
-    data_generation(dataset='lastfm')
+    id_storing()
+    dict_storing()
+    data_generation()

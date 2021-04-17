@@ -144,18 +144,21 @@ def dict_storing_lastfm():
     user_all_ids = user_state_ids['user_all_ids']
 
     user_dict = {}
+    
+    updated_u_id = []
 
     for u_id in tqdm(user_all_ids):
         row = user_info.loc[user_info['user_id'] == u_id]
+        if len(row) > 0:
+        updated_u_id.append(u_id)
         feature_vector = user_converting_lf(user_row=row, friend_list=list_lastfm['list_friend'])
-
         user_all_features.append(feature_vector)
 
     user_all_features = np.array(user_all_features)
 
     count = 0
 
-    for u_id in tqdm(user_all_ids):
+    for u_id in tqdm(updated_u_id):
         u_info = user_all_features[count]
         user_dict[u_id] = u_info
         count += 1
