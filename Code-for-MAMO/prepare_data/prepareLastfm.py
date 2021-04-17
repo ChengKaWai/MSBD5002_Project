@@ -57,7 +57,7 @@ def load_lastfm():
     return user_info, item_info, ratings
 
 
-def id_storing_lastfm(max_count=20):
+def id_storing_lastfm(max_count=10):
     storing_path = 'data_processed'
     dataset = 'lastfm'
 
@@ -150,9 +150,9 @@ def dict_storing_lastfm():
     for u_id in tqdm(user_all_ids):
         row = user_info.loc[user_info['user_id'] == u_id]
         if len(row) > 0:
-        updated_u_id.append(u_id)
-        feature_vector = user_converting_lf(user_row=row, friend_list=list_lastfm['list_friend'])
-        user_all_features.append(feature_vector)
+            updated_u_id.append(u_id)
+            feature_vector = user_converting_lf(user_row=row, friend_list=list_lastfm['list_friend'])
+            user_all_features.append(feature_vector)
 
     user_all_features = np.array(user_all_features)
 

@@ -4,7 +4,7 @@ from __future__ import print_function
 #lastfm
 from prepare_data.prepareLastfm import *
 
-def id_storing(dataset='lastfm', max_count=20):
+def id_storing(dataset='lastfm', max_count=10):
     # dataset option: 'movielens', 'bookcrossing'
     # max_count: storing_size
     storing_path = 'data_processed'
