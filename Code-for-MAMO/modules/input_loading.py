@@ -106,6 +106,6 @@ class LFItemLoading(torch.nn.Module): # sharing
 
 
     def forward(self, x2):
-        category_idx = x2[:,0:60]
+        category_idx = x2[:,0:61]
         category_emb = F.sigmoid(self.embedding_category(category_idx.float()))
         return category_emb

@@ -25,7 +25,7 @@ config = {
     'n_location': 65,
     # lastfm
     'n_friend': 1892,
-    'n_category': 60,
+    'n_category': 61,
     # sample_size
     'sample_size': 20
 }

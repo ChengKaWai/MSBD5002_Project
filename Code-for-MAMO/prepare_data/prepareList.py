@@ -85,9 +85,9 @@ def user_converting_lf(user_row, friend_list):
 
 
 def item_converting_lf(item_row, category_list):
-    # category_dim: 60
+    # category_dim: 61
 #    rate_idx = rate_list.index(item_row.iat[0, 3])
-    category_idx = [0] * 60
+    category_idx = [0] * 61
     for category in str(item_row.iat[0, 1]).split(", "):
         idx = category_list.index(category)
         category_idx[idx] = 1
