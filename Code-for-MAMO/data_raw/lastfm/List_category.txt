@@ -42,6 +42,7 @@ korea
 love
 male
 metal
+nan
 piano
 pop
 punk
