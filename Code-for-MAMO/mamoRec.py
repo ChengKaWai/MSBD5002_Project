@@ -79,8 +79,9 @@ class MAMRec:
             u_grad_sum, i_grad_sum, r_grad_sum = self.model.get_zero_weights()
 
             # On training dataset
-            for u in self.train_users[:100]:
-                # init local parameters: theta_u, theta_i, theta_r
+#            for u in self.train_users[:100]:
+            for u in self.train_users[:]:
+# init local parameters: theta_u, theta_i, theta_r
                 bias_term, att_values = user_mem_init(u, self.dataset, self.device, self.FeatureMEM, self.x1_loading,
                                                       self.alpha)
                 self.model.init_u_mem_weights(self.phi_u, bias_term, self.tao, self.phi_i, self.phi_r)
