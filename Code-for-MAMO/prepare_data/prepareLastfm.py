@@ -110,7 +110,7 @@ def id_storing_lastfm(max_count=10):
         for i_id in tqdm(item_ids):
             i_info = sorted_items.loc[sorted_items.item_id == i_id].reset_index(drop=True)
             i_count = len(i_info)
-            if i_count > 2 :
+            if i_count > 1 :
                 item_warm_list.append(i_id)
             else:
                 item_cold_list.append(i_id)
